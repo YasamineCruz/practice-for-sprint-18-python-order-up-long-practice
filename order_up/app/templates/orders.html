@@ -2,10 +2,32 @@
 
 {% block content %}
 <h1>Order Up!</h1>
+<h2>ASSIGN TABLE</h2>
 <form method="post" action="/">
     <div>{{form.tables}}</div>
     <div>{{form.servers}}</div>
     <div>{{form.assign}}</div>
 </form>
-<div>{{orders}}</div>
+<div>
+    <h2>YOUR OPEN ORDERS</h2>
+    {% for order in orders %}
+    <div>Table {{order.table_id}}</div>
+    {% endfor %}
+</div>
+<div>
+    <div>ENTREES</div>
+    {% for menuItem in menuItems if menuItem[1] == 'Entrees'%}
+      <div>{{menuItem[0]}}</div>
+    {% endfor %}
+    <div>SIDES</div>
+    {% for menuItem in menuItems if menuItem[1] == 'Sides'%}
+    <div>{{menuItem[0]}}</div>
+    {% endfor %}
+    <div>DRINKS</div>
+    {% for menuItem in menuItems if menuItem[1] == 'Beverages'%}
+    <div>{{menuItem[0]}}</div>
+    {% endfor %}
+
+</div>
+
 {% endblock %}
