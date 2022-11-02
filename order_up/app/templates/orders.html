@@ -2,7 +2,10 @@
 
 {% block content %}
 <h1>Order Up!</h1>
-
-
-
+<form method="post" action="/">
+    <div>{{form.tables}}</div>
+    <div>{{form.servers}}</div>
+    <div>{{form.assign}}</div>
+</form>
+<div>{{orders}}</div>
 {% endblock %}
